@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +22,24 @@
  * SOFTWARE.
  */
 
-package string;
+package math;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-/*
- * Tests for 30 Seconds of Java code library
- *
+/**
+ * Tests for 30 Seconds of Java code library.
  */
-class ReversStringSnippetTest {
+public class SquareRootTest {
   /**
-   * Tests for {@link ReversStringSnippet#reverseString(String)}.
+   * Test for {@link SquareRoot #SquareRoot(int,int)}.
    */
   @Test
-  void testReverseString() {
-    assertEquals("oof", ReversStringSnippet.reverseString("foo"));
-    assertEquals("ÖÄÅ321FED cba", ReversStringSnippet.reverseString("abc DEF123ÅÄÖ"));
+    void test_sqrt() {
+    assertEquals(6.0, SquareRoot.sqrt(36, 1));
+    assertEquals(6.324555319999993, SquareRoot.sqrt(40, 9));
+    assertEquals(6.707999999999995, SquareRoot.sqrt(45, 3));
+    assertEquals(9.529999999999982, SquareRoot.sqrt(91, 2));
   }
 }

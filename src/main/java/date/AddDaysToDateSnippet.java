@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2017-2019 Ilkka Seppälä
+ * Copyright (c) 2017-2022 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,20 +22,43 @@
  * SOFTWARE.
  */
 
-package string;
+package date;
 
-/*
- * 30 Seconds of Java code library
- *
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * AddDaysToDateSnippet.
  */
-public class ReversStringSnippet {
+public class AddDaysToDateSnippet {
+
   /**
-   * Reverse string.
+   * Add days to given date.
    *
-   * @param s the string to reverse
-   * @return reversed string
+   * @param date given date
+   * @param noOfDays number of days to add
+   * @return modified date
    */
-  public static String reverseString(String s) {
-    return new StringBuilder(s).reverse().toString();
+  public static Date addDaysToDate(Date date, int noOfDays) {
+    if (date != null) {
+      Calendar cal = Calendar.getInstance();
+      cal.setTime(date);
+      cal.add(Calendar.DAY_OF_MONTH, noOfDays);
+      return cal.getTime();
+    }
+    return null;
+  }
+
+  /**
+   * Add days to local date.
+   *
+   * @param date given local date
+   * @param noOfDays number of days to add
+   * @return modified date
+   */
+  public static LocalDate addDaysToLocalDate(LocalDate date, long noOfDays) {
+    return date != null ? date.plusDays(noOfDays) : null;
   }
 }
